@@ -20,12 +20,17 @@ const PrincipalLayout = () => {
 
 
 
-  const { storeSelected, setStoreSelected } = useContext(formContext)
+  const { storeSelected, setStoreSelected, reloadData,setReloadData,logged, setLogged } = useContext(formContext)
 
   const [storeOptions, setStoreOptions] = useState([])
   const [collapsed, setCollapsed] = useState(false)
 
-
+const logout = () => {
+  localStorage.removeItem('token')
+  setReloadData(!reloadData)
+  setLogged(false)
+  
+}
   useEffect(() => {
     getOptionsStore()
   }, [])
@@ -47,7 +52,7 @@ const PrincipalLayout = () => {
 
           </Image>
         </div>
-        <Button style={{ justifySelf: 'end', border: 'none', alignSelf: 'center' }} color='primary' onClick={() => setCollapsed(!collapsed)}><LogoutIcon /></Button>
+        <Button style={{ justifySelf: 'end', border: 'none', alignSelf: 'center' }} color='primary' onClick={() => logout()}><LogoutIcon /></Button>
 
       </Header>
       <Layout>
