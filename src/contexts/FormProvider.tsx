@@ -1,6 +1,6 @@
 import React, { createContext, useState, ReactNode, useMemo, useEffect } from 'react'
-import {IPropsFormProvider} from './Props.interfaces'
-export const formContext = createContext({})
+import {IContext, IPropsFormProvider} from './Props.interfaces'
+export const formContext = createContext({} as IContext)
 
 
 const FormProvider = ({children}:IPropsFormProvider)  =>{

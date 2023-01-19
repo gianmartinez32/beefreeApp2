@@ -33,7 +33,7 @@ const logout = () => {
 }
   useEffect(() => {
     getOptionsStore()
-  }, [])
+  }, [reloadData])
 
   const getOptionsStore = async () => {
     try {
